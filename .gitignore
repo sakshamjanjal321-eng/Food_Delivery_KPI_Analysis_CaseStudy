@@ -1,0 +1,2 @@
+# Ignore large raw data files to keep the repository lightweight, but keep orders_cleaned.csv as it is loaded by the web app.
+orders_raw.csv

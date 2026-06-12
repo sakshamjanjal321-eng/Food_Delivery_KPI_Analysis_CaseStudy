@@ -1,0 +1,859 @@
+{
+    "summary": {
+        "total_orders": 25000,
+        "total_delivered": 23365,
+        "total_cancelled": 1635,
+        "total_revenue": 8612635,
+        "overall_aov": 368.61,
+        "overall_on_time_rate": 42.37,
+        "overall_cancellation_rate": 6.54,
+        "avg_delivery_duration": 44.6,
+        "avg_rating": 3.36,
+        "weekend_aov": 298.45,
+        "weekday_aov": 396.0,
+        "weekend_orders": 7102,
+        "weekday_orders": 17898
+    },
+    "rating_distribution": {
+        "1.0": 2074,
+        "2.0": 1843,
+        "3.0": 3291,
+        "4.0": 4566,
+        "5.0": 3457
+    },
+    "monthly_stats": [
+        {
+            "order_month": "2025-06",
+            "orders": 2030,
+            "delivered_orders": 1893,
+            "revenue": 691159,
+            "aov": 365.11
+        },
+        {
+            "order_month": "2025-07",
+            "orders": 2077,
+            "delivered_orders": 1933,
+            "revenue": 719814,
+            "aov": 372.38
+        },
+        {
+            "order_month": "2025-08",
+            "orders": 2150,
+            "delivered_orders": 2009,
+            "revenue": 726149,
+            "aov": 361.45
+        },
+        {
+            "order_month": "2025-09",
+            "orders": 2068,
+            "delivered_orders": 1938,
+            "revenue": 719419,
+            "aov": 371.22
+        },
+        {
+            "order_month": "2025-10",
+            "orders": 2144,
+            "delivered_orders": 1998,
+            "revenue": 736332,
+            "aov": 368.53
+        },
+        {
+            "order_month": "2025-11",
+            "orders": 1988,
+            "delivered_orders": 1862,
+            "revenue": 678908,
+            "aov": 364.61
+        },
+        {
+            "order_month": "2025-12",
+            "orders": 2185,
+            "delivered_orders": 2048,
+            "revenue": 748533,
+            "aov": 365.49
+        },
+        {
+            "order_month": "2026-01",
+            "orders": 1996,
+            "delivered_orders": 1848,
+            "revenue": 691682,
+            "aov": 374.29
+        },
+        {
+            "order_month": "2026-02",
+            "orders": 1957,
+            "delivered_orders": 1837,
+            "revenue": 685346,
+            "aov": 373.08
+        },
+        {
+            "order_month": "2026-03",
+            "orders": 2158,
+            "delivered_orders": 2029,
+            "revenue": 753894,
+            "aov": 371.56
+        },
+        {
+            "order_month": "2026-04",
+            "orders": 2156,
+            "delivered_orders": 2018,
+            "revenue": 749287,
+            "aov": 371.3
+        },
+        {
+            "order_month": "2026-05",
+            "orders": 2091,
+            "delivered_orders": 1952,
+            "revenue": 712112,
+            "aov": 364.81
+        }
+    ],
+    "weekly_stats": [
+        {
+            "order_week": "2025-05-26/2025-06-01",
+            "orders": 55,
+            "delivered_orders": 47,
+            "revenue": 13358,
+            "aov": 284.21
+        },
+        {
+            "order_week": "2025-06-02/2025-06-08",
+            "orders": 526,
+            "delivered_orders": 488,
+            "revenue": 175131,
+            "aov": 358.88
+        },
+        {
+            "order_week": "2025-06-09/2025-06-15",
+            "orders": 487,
+            "delivered_orders": 458,
+            "revenue": 169924,
+            "aov": 371.01
+        },
+        {
+            "order_week": "2025-06-16/2025-06-22",
+            "orders": 432,
+            "delivered_orders": 407,
+            "revenue": 152243,
+            "aov": 374.06
+        },
+        {
+            "order_week": "2025-06-23/2025-06-29",
+            "orders": 468,
+            "delivered_orders": 435,
+            "revenue": 160036,
+            "aov": 367.9
+        },
+        {
+            "order_week": "2025-06-30/2025-07-06",
+            "orders": 452,
+            "delivered_orders": 429,
+            "revenue": 153570,
+            "aov": 357.97
+        },
+        {
+            "order_week": "2025-07-07/2025-07-13",
+            "orders": 445,
+            "delivered_orders": 408,
+            "revenue": 149087,
+            "aov": 365.41
+        },
+        {
+            "order_week": "2025-07-14/2025-07-20",
+            "orders": 498,
+            "delivered_orders": 460,
+            "revenue": 175251,
+            "aov": 380.98
+        },
+        {
+            "order_week": "2025-07-21/2025-07-27",
+            "orders": 478,
+            "delivered_orders": 448,
+            "revenue": 169908,
+            "aov": 379.26
+        },
+        {
+            "order_week": "2025-07-28/2025-08-03",
+            "orders": 471,
+            "delivered_orders": 437,
+            "revenue": 155091,
+            "aov": 354.9
+        },
+        {
+            "order_week": "2025-08-04/2025-08-10",
+            "orders": 493,
+            "delivered_orders": 466,
+            "revenue": 170357,
+            "aov": 365.57
+        },
+        {
+            "order_week": "2025-08-11/2025-08-17",
+            "orders": 492,
+            "delivered_orders": 453,
+            "revenue": 168591,
+            "aov": 372.17
+        },
+        {
+            "order_week": "2025-08-18/2025-08-24",
+            "orders": 477,
+            "delivered_orders": 448,
+            "revenue": 162637,
+            "aov": 363.03
+        },
+        {
+            "order_week": "2025-08-25/2025-08-31",
+            "orders": 483,
+            "delivered_orders": 451,
+            "revenue": 161938,
+            "aov": 359.06
+        },
+        {
+            "order_week": "2025-09-01/2025-09-07",
+            "orders": 470,
+            "delivered_orders": 447,
+            "revenue": 164038,
+            "aov": 366.98
+        },
+        {
+            "order_week": "2025-09-08/2025-09-14",
+            "orders": 469,
+            "delivered_orders": 435,
+            "revenue": 163231,
+            "aov": 375.24
+        },
+        {
+            "order_week": "2025-09-15/2025-09-21",
+            "orders": 489,
+            "delivered_orders": 453,
+            "revenue": 166703,
+            "aov": 368.0
+        },
+        {
+            "order_week": "2025-09-22/2025-09-28",
+            "orders": 491,
+            "delivered_orders": 463,
+            "revenue": 168222,
+            "aov": 363.33
+        },
+        {
+            "order_week": "2025-09-29/2025-10-05",
+            "orders": 504,
+            "delivered_orders": 471,
+            "revenue": 171372,
+            "aov": 363.85
+        },
+        {
+            "order_week": "2025-10-06/2025-10-12",
+            "orders": 475,
+            "delivered_orders": 433,
+            "revenue": 164148,
+            "aov": 379.09
+        },
+        {
+            "order_week": "2025-10-13/2025-10-19",
+            "orders": 476,
+            "delivered_orders": 447,
+            "revenue": 161750,
+            "aov": 361.86
+        },
+        {
+            "order_week": "2025-10-20/2025-10-26",
+            "orders": 507,
+            "delivered_orders": 484,
+            "revenue": 177489,
+            "aov": 366.71
+        },
+        {
+            "order_week": "2025-10-27/2025-11-02",
+            "orders": 482,
+            "delivered_orders": 443,
+            "revenue": 159630,
+            "aov": 360.34
+        },
+        {
+            "order_week": "2025-11-03/2025-11-09",
+            "orders": 449,
+            "delivered_orders": 417,
+            "revenue": 148706,
+            "aov": 356.61
+        },
+        {
+            "order_week": "2025-11-10/2025-11-16",
+            "orders": 434,
+            "delivered_orders": 410,
+            "revenue": 158700,
+            "aov": 387.07
+        },
+        {
+            "order_week": "2025-11-17/2025-11-23",
+            "orders": 505,
+            "delivered_orders": 471,
+            "revenue": 172782,
+            "aov": 366.84
+        },
+        {
+            "order_week": "2025-11-24/2025-11-30",
+            "orders": 449,
+            "delivered_orders": 424,
+            "revenue": 157888,
+            "aov": 372.38
+        },
+        {
+            "order_week": "2025-12-01/2025-12-07",
+            "orders": 464,
+            "delivered_orders": 432,
+            "revenue": 163159,
+            "aov": 377.68
+        },
+        {
+            "order_week": "2025-12-08/2025-12-14",
+            "orders": 482,
+            "delivered_orders": 458,
+            "revenue": 164205,
+            "aov": 358.53
+        },
+        {
+            "order_week": "2025-12-15/2025-12-21",
+            "orders": 531,
+            "delivered_orders": 503,
+            "revenue": 183614,
+            "aov": 365.04
+        },
+        {
+            "order_week": "2025-12-22/2025-12-28",
+            "orders": 507,
+            "delivered_orders": 468,
+            "revenue": 164825,
+            "aov": 352.19
+        },
+        {
+            "order_week": "2025-12-29/2026-01-04",
+            "orders": 467,
+            "delivered_orders": 425,
+            "revenue": 161497,
+            "aov": 379.99
+        },
+        {
+            "order_week": "2026-01-05/2026-01-11",
+            "orders": 462,
+            "delivered_orders": 427,
+            "revenue": 155800,
+            "aov": 364.87
+        },
+        {
+            "order_week": "2026-01-12/2026-01-18",
+            "orders": 437,
+            "delivered_orders": 408,
+            "revenue": 153263,
+            "aov": 375.64
+        },
+        {
+            "order_week": "2026-01-19/2026-01-25",
+            "orders": 456,
+            "delivered_orders": 432,
+            "revenue": 164157,
+            "aov": 379.99
+        },
+        {
+            "order_week": "2026-01-26/2026-02-01",
+            "orders": 444,
+            "delivered_orders": 404,
+            "revenue": 148501,
+            "aov": 367.58
+        },
+        {
+            "order_week": "2026-02-02/2026-02-08",
+            "orders": 509,
+            "delivered_orders": 471,
+            "revenue": 180361,
+            "aov": 382.93
+        },
+        {
+            "order_week": "2026-02-09/2026-02-15",
+            "orders": 521,
+            "delivered_orders": 488,
+            "revenue": 181653,
+            "aov": 372.24
+        },
+        {
+            "order_week": "2026-02-16/2026-02-22",
+            "orders": 456,
+            "delivered_orders": 434,
+            "revenue": 159392,
+            "aov": 367.26
+        },
+        {
+            "order_week": "2026-02-23/2026-03-01",
+            "orders": 478,
+            "delivered_orders": 454,
+            "revenue": 166088,
+            "aov": 365.83
+        },
+        {
+            "order_week": "2026-03-02/2026-03-08",
+            "orders": 486,
+            "delivered_orders": 456,
+            "revenue": 170103,
+            "aov": 373.03
+        },
+        {
+            "order_week": "2026-03-09/2026-03-15",
+            "orders": 498,
+            "delivered_orders": 465,
+            "revenue": 174402,
+            "aov": 375.06
+        },
+        {
+            "order_week": "2026-03-16/2026-03-22",
+            "orders": 494,
+            "delivered_orders": 464,
+            "revenue": 173793,
+            "aov": 374.55
+        },
+        {
+            "order_week": "2026-03-23/2026-03-29",
+            "orders": 488,
+            "delivered_orders": 462,
+            "revenue": 172077,
+            "aov": 372.46
+        },
+        {
+            "order_week": "2026-03-30/2026-04-05",
+            "orders": 442,
+            "delivered_orders": 408,
+            "revenue": 149144,
+            "aov": 365.55
+        },
+        {
+            "order_week": "2026-04-06/2026-04-12",
+            "orders": 493,
+            "delivered_orders": 468,
+            "revenue": 173876,
+            "aov": 371.53
+        },
+        {
+            "order_week": "2026-04-13/2026-04-19",
+            "orders": 495,
+            "delivered_orders": 469,
+            "revenue": 171642,
+            "aov": 365.97
+        },
+        {
+            "order_week": "2026-04-20/2026-04-26",
+            "orders": 529,
+            "delivered_orders": 491,
+            "revenue": 180116,
+            "aov": 366.84
+        },
+        {
+            "order_week": "2026-04-27/2026-05-03",
+            "orders": 506,
+            "delivered_orders": 474,
+            "revenue": 175202,
+            "aov": 369.62
+        },
+        {
+            "order_week": "2026-05-04/2026-05-10",
+            "orders": 499,
+            "delivered_orders": 465,
+            "revenue": 168956,
+            "aov": 363.35
+        },
+        {
+            "order_week": "2026-05-11/2026-05-17",
+            "orders": 479,
+            "delivered_orders": 445,
+            "revenue": 165090,
+            "aov": 370.99
+        },
+        {
+            "order_week": "2026-05-18/2026-05-24",
+            "orders": 484,
+            "delivered_orders": 450,
+            "revenue": 168786,
+            "aov": 375.08
+        },
+        {
+            "order_week": "2026-05-25/2026-05-31",
+            "orders": 436,
+            "delivered_orders": 411,
+            "revenue": 151152,
+            "aov": 367.77
+        }
+    ],
+    "city_stats": [
+        {
+            "city": "Bangalore",
+            "orders": 10273,
+            "delivered_orders": 9594,
+            "revenue": 3632312,
+            "on_time_rate": 30.08,
+            "cancellation_rate": 6.61,
+            "avg_duration": 48.3
+        },
+        {
+            "city": "Chennai",
+            "orders": 4422,
+            "delivered_orders": 4159,
+            "revenue": 1397105,
+            "on_time_rate": 51.94,
+            "cancellation_rate": 5.95,
+            "avg_duration": 41.8
+        },
+        {
+            "city": "Delhi",
+            "orders": 1576,
+            "delivered_orders": 1459,
+            "revenue": 545752,
+            "on_time_rate": 52.3,
+            "cancellation_rate": 7.42,
+            "avg_duration": 41.4
+        },
+        {
+            "city": "Hyderabad",
+            "orders": 6400,
+            "delivered_orders": 5990,
+            "revenue": 2252358,
+            "on_time_rate": 52.14,
+            "cancellation_rate": 6.41,
+            "avg_duration": 41.6
+        },
+        {
+            "city": "Mumbai",
+            "orders": 908,
+            "delivered_orders": 850,
+            "revenue": 337035,
+            "on_time_rate": 37.29,
+            "cancellation_rate": 6.39,
+            "avg_duration": 45.5
+        },
+        {
+            "city": "Pune",
+            "orders": 1421,
+            "delivered_orders": 1313,
+            "revenue": 448073,
+            "on_time_rate": 49.58,
+            "cancellation_rate": 7.6,
+            "avg_duration": 42.0
+        }
+    ],
+    "category_stats": [
+        {
+            "cuisine_category": "Biryani",
+            "orders": 6722,
+            "delivered_orders": 6286,
+            "revenue": 2643670,
+            "avg_rating": 3.41
+        },
+        {
+            "cuisine_category": "Chinese",
+            "orders": 3188,
+            "delivered_orders": 2996,
+            "revenue": 1101481,
+            "avg_rating": 3.31
+        },
+        {
+            "cuisine_category": "Desserts",
+            "orders": 2105,
+            "delivered_orders": 1972,
+            "revenue": 577384,
+            "avg_rating": 3.3
+        },
+        {
+            "cuisine_category": "Fast Food",
+            "orders": 4011,
+            "delivered_orders": 3756,
+            "revenue": 1384100,
+            "avg_rating": 3.3
+        },
+        {
+            "cuisine_category": "North Indian",
+            "orders": 3885,
+            "delivered_orders": 3618,
+            "revenue": 1530772,
+            "avg_rating": 3.37
+        },
+        {
+            "cuisine_category": "South Indian",
+            "orders": 5089,
+            "delivered_orders": 4737,
+            "revenue": 1375228,
+            "avg_rating": 3.39
+        }
+    ],
+    "cancel_reasons": {
+        "Delivery partner unavailable": 592,
+        "Customer cancelled": 565,
+        "Restaurant rejected": 328,
+        "Delayed delivery cancel": 150
+    },
+    "city_rider_efficiency": [
+        {
+            "city": "Bangalore",
+            "avg_orders_per_rider_day": 1.3,
+            "avg_rider_duration": 48.3
+        },
+        {
+            "city": "Chennai",
+            "avg_orders_per_rider_day": 1.11,
+            "avg_rider_duration": 41.8
+        },
+        {
+            "city": "Delhi",
+            "avg_orders_per_rider_day": 1.04,
+            "avg_rider_duration": 41.4
+        },
+        {
+            "city": "Hyderabad",
+            "avg_orders_per_rider_day": 1.16,
+            "avg_rider_duration": 41.6
+        },
+        {
+            "city": "Mumbai",
+            "avg_orders_per_rider_day": 1.03,
+            "avg_rider_duration": 45.6
+        },
+        {
+            "city": "Pune",
+            "avg_orders_per_rider_day": 1.03,
+            "avg_rider_duration": 42.0
+        }
+    ],
+    "cohort_retention": [
+        {
+            "cohort_month": "2025-06",
+            "cohort_size": 152,
+            "retention_rates": [
+                100.0,
+                50.7,
+                51.3,
+                48.0,
+                52.6,
+                52.0,
+                50.7,
+                50.0,
+                44.1,
+                52.0,
+                53.9,
+                46.1
+            ]
+        },
+        {
+            "cohort_month": "2025-07",
+            "cohort_size": 75,
+            "retention_rates": [
+                100.0,
+                18.7,
+                14.7,
+                22.7,
+                22.7,
+                22.7,
+                24.0,
+                17.3,
+                22.7,
+                16.0,
+                25.3,
+                null
+            ]
+        },
+        {
+            "cohort_month": "2025-08",
+            "cohort_size": 48,
+            "retention_rates": [
+                100.0,
+                14.6,
+                22.9,
+                14.6,
+                18.8,
+                8.3,
+                25.0,
+                20.8,
+                22.9,
+                18.8,
+                null,
+                null
+            ]
+        },
+        {
+            "cohort_month": "2025-09",
+            "cohort_size": 39,
+            "retention_rates": [
+                100.0,
+                7.7,
+                2.6,
+                7.7,
+                5.1,
+                2.6,
+                7.7,
+                5.1,
+                5.1,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "cohort_month": "2025-10",
+            "cohort_size": 41,
+            "retention_rates": [
+                100.0,
+                9.8,
+                17.1,
+                4.9,
+                9.8,
+                9.8,
+                4.9,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "cohort_month": "2025-11",
+            "cohort_size": 22,
+            "retention_rates": [
+                100.0,
+                4.5,
+                13.6,
+                9.1,
+                22.7,
+                18.2,
+                4.5,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "cohort_month": "2025-12",
+            "cohort_size": 37,
+            "retention_rates": [
+                100.0,
+                2.7,
+                5.4,
+                5.4,
+                10.8,
+                2.7,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "cohort_month": "2026-01",
+            "cohort_size": 35,
+            "retention_rates": [
+                100.0,
+                5.7,
+                5.7,
+                5.7,
+                5.7,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "cohort_month": "2026-02",
+            "cohort_size": 29,
+            "retention_rates": [
+                100.0,
+                6.9,
+                6.9,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "cohort_month": "2026-03",
+            "cohort_size": 24,
+            "retention_rates": [
+                100.0,
+                8.3,
+                12.5,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "cohort_month": "2026-04",
+            "cohort_size": 23,
+            "retention_rates": [
+                100.0,
+                4.3,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "cohort_month": "2026-05",
+            "cohort_size": 24,
+            "retention_rates": [
+                100.0,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        }
+    ],
+    "forecast": {
+        "slope": 1591.8356643356828,
+        "intercept": 708964.4871794868,
+        "regression_line": [
+            708964.49,
+            710556.32,
+            712148.16,
+            713739.99,
+            715331.83,
+            716923.67,
+            718515.5,
+            720107.34,
+            721699.17,
+            723291.01,
+            724882.84,
+            726474.68
+        ],
+        "forecast_month": "2026-06",
+        "forecast_revenue": 728066.52
+    }
+}

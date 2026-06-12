@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZippyBites | Food Delivery KPI Analysis Case Study</title>
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="A comprehensive portfolio case study analyzing 25,000+ food delivery orders. Features interactive metrics, customer cohorts, predictive forecasting, and a business simulator.">
+    
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- JavaScript Dashboard Logic -->
+    <script src="app.js?v=1.0.1" defer></script>
+</head>
+<body>
+    <header class="app-header">
+        <div class="logo-area">
+            <div class="logo-icon">
+                <i class="fa-solid fa-bolt-lightning"></i>
+            </div>
+            <div class="logo-text">
+                <h1>ZippyBites</h1>
+                <span>KPI Analytics Dashboard</span>
+            </div>
+        </div>
+        <div class="header-badge">
+            <span class="badge-dot"></span>
+            Portfolio Case Study Project
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <nav class="nav-menu">
+                <button class="nav-item active" data-target="overview">
+                    <i class="fa-solid fa-chart-line"></i> Executive Overview
+                </button>
+                <button class="nav-item" data-target="operations">
+                    <i class="fa-solid fa-truck-fast"></i> Operations Deep-Dive
+                </button>
+                <button class="nav-item" data-target="cohorts">
+                    <i class="fa-solid fa-users-viewfinder"></i> Growth & Retention
+                </button>
+                <button class="nav-item" data-target="predictive">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Predictive Sandbox
+                </button>
+                <button class="nav-item" data-target="insights">
+                    <i class="fa-solid fa-lightbulb"></i> Strategic Insights
+                </button>
+                <button class="nav-item" data-target="about">
+                    <i class="fa-solid fa-file-invoice"></i> Methodology & Setup
+                </button>
+            </nav>
+
+        </aside>
+
+        <!-- Main Dashboard View -->
+        <main class="content-area">
+            <!-- Global Slicers / Filters -->
+            <section class="filters-bar" id="filters-section">
+                <div class="filter-group">
+                    <label for="city-filter"><i class="fa-solid fa-location-dot"></i> City</label>
+                    <select id="city-filter" class="filter-select">
+                        <option value="All">All Cities (6)</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Bangalore">Bangalore</option>
+                        <option value="Hyderabad">Hyderabad</option>
+                        <option value="Pune">Pune</option>
+                        <option value="Chennai">Chennai</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="cuisine-filter"><i class="fa-solid fa-utensils"></i> Cuisine</label>
+                    <select id="cuisine-filter" class="filter-select">
+                        <option value="All">All Cuisines (6)</option>
+                        <option value="North Indian">North Indian</option>
+                        <option value="South Indian">South Indian</option>
+                        <option value="Biryani">Biryani</option>
+                        <option value="Fast Food">Fast Food</option>
+                        <option value="Chinese">Chinese</option>
+                        <option value="Desserts">Desserts</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="day-filter"><i class="fa-solid fa-calendar-day"></i> Day Type</label>
+                    <select id="day-filter" class="filter-select">
+                        <option value="All">All Days</option>
+                        <option value="Weekday">Weekdays</option>
+                        <option value="Weekend">Weekends (Sat-Sun)</option>
+                    </select>
+                </div>
+                <button class="reset-filters-btn" id="reset-filters">
+                    <i class="fa-solid fa-rotate-left"></i> Reset
+                </button>
+                <div class="loading-indicator" id="data-loading">
+                    <i class="fa-solid fa-spinner fa-spin"></i> Parsing 25K Orders...
+                </div>
+            </section>
+
+            <!-- TAB 1: EXECUTIVE OVERVIEW -->
+            <section id="overview-tab" class="tab-content active">
+                <div class="kpi-grid">
+                    <div class="kpi-card" id="kpi-revenue">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Total Revenue</span>
+                            <div class="kpi-icon icon-revenue"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+                        </div>
+                        <div class="kpi-value" id="val-revenue">₹0</div>
+                        <div class="kpi-subtext" id="sub-revenue">From delivered orders</div>
+                    </div>
+                    
+                    <div class="kpi-card" id="kpi-orders">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Total Orders</span>
+                            <div class="kpi-icon icon-orders"><i class="fa-solid fa-bag-shopping"></i></div>
+                        </div>
+                        <div class="kpi-value" id="val-orders">0</div>
+                        <div class="kpi-subtext" id="sub-orders">Placed order volume</div>
+                    </div>
+
+                    <div class="kpi-card" id="kpi-aov">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Average Order Value (AOV)</span>
+                            <div class="kpi-icon icon-aov"><i class="fa-solid fa-calculator"></i></div>
+                        </div>
+                        <div class="kpi-value" id="val-aov">₹0</div>
+                        <div class="kpi-subtext" id="sub-aov">Average spend per order</div>
+                    </div>
+
+                    <div class="kpi-card warning-highlight" id="kpi-ontime">
+                        <div class="kpi-header">
+                            <span class="kpi-title">On-Time Delivery Rate</span>
+                            <div class="kpi-icon icon-ontime"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        </div>
+                        <div class="kpi-value" id="val-ontime" style="color: var(--accent-red);">0%</div>
+                        <div class="kpi-subtext" id="sub-ontime">Goal: &le; 40 mins duration</div>
+                        <div class="kpi-badge-warn">⚠️ SLA Breach</div>
+                    </div>
+
+                    <div class="kpi-card" id="kpi-cancellation">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Cancellation Rate</span>
+                            <div class="kpi-icon icon-cancellation"><i class="fa-solid fa-ban"></i></div>
+                        </div>
+                        <div class="kpi-value" id="val-cancellation">0%</div>
+                        <div class="kpi-subtext" id="sub-cancellation">Failed order share</div>
+                    </div>
+
+                    <div class="kpi-card" id="kpi-rating">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Avg Customer Rating</span>
+                            <div class="kpi-icon icon-rating"><i class="fa-solid fa-star"></i></div>
+                        </div>
+                        <div class="kpi-value" id="val-rating">0.0</div>
+                        <div class="kpi-subtext" id="sub-rating">Out of 5.0 stars</div>
+                    </div>
+                </div>
+
+                <div class="chart-layout-main">
+                    <div class="chart-container large-chart">
+                        <div class="chart-header">
+                            <h3>Weekly Revenue & Order Trends</h3>
+                            <span class="chart-desc">12-month timeline tracking sales growth and seasonal spikes</span>
+                        </div>
+                        <div class="canvas-wrapper">
+                            <canvas id="weekly-trends-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-grid-two">
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>Revenue by City</h3>
+                            <span class="chart-desc">Geographic distribution of sales performance</span>
+                        </div>
+                        <div class="canvas-wrapper">
+                            <canvas id="city-revenue-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>Revenue by Cuisine Category</h3>
+                            <span class="chart-desc">Which food type generates the highest sales volume?</span>
+                        </div>
+                        <div class="canvas-wrapper">
+                            <canvas id="category-revenue-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: OPERATIONS DEEP-DIVE -->
+            <section id="operations-tab" class="tab-content">
+                <div class="grid-layout-ops">
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>Delivery Time Distribution</h3>
+                            <span class="chart-desc">Frequency distribution of total minutes (placed to delivered)</span>
+                        </div>
+                        <div class="canvas-wrapper">
+                            <canvas id="delivery-distribution-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>On-Time Delivery Trend (Monthly)</h3>
+                            <span class="chart-desc">Tracking operational SLA performance against 40-min target</span>
+                        </div>
+                        <div class="canvas-wrapper">
+                            <canvas id="ontime-trend-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>Cancellations by Reason</h3>
+                            <span class="chart-desc">Primary operational bottlenecks causing lost orders</span>
+                        </div>
+                        <div class="canvas-wrapper">
+                            <canvas id="cancellation-reasons-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>Delivery Rider Efficiency & Speeds</h3>
+                            <span class="chart-desc">Average orders completed per active day and speed (km/hr) by City</span>
+                        </div>
+                        <div class="rider-table-wrapper">
+                            <table class="data-table" id="rider-efficiency-table">
+                                <thead>
+                                    <tr>
+                                        <th>City</th>
+                                        <th>Avg Orders / Rider / Active Day</th>
+                                        <th>Avg Delivery Duration (Mins)</th>
+                                        <th>Operational Load</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Dynamic rows from app.js -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: GROWTH & RETENTION -->
+            <section id="cohorts-tab" class="tab-content">
+                <div class="cohort-intro-box">
+                    <div class="intro-title">
+                        <i class="fa-solid fa-users-viewfinder"></i> Cohort Retention Heatmap
+                    </div>
+                    <p>
+                        This retention table tracks monthly cohorts based on a user's <strong>first order</strong> at ZippyBites. 
+                        Each row represents a customer cohort starting in a specific month, and columns (Month 0 to Month 11) track the percentage of those same customers who returned to place at least one order in subsequent months.
+                    </p>
+                </div>
+                
+                <div class="cohort-intro-box" style="border-left-color: var(--accent-teal); margin-top: 16px;">
+                    <div class="intro-title" style="color: var(--accent-teal);">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i> Cohort Segment Analysis ("The Why")
+                    </div>
+                    <p>
+                        Aggregated customer retention drops from 38% in Month 1 to 14% in Month 3. However, segmenting cohorts by city reveals key variance: 
+                        <strong>Hyderabad</strong> maintains a much higher Month 3 retention rate of <strong>~22.7%</strong> (correlated with high frequency Biryani re-ordering behavior), while <strong>Pune</strong> drops to <strong>~9.8%</strong>. This indicates that operational supply-side stability in high-density regions dramatically influences long-term repeat cohort curves.
+                    </p>
+                </div>
+
+                <div class="cohort-heatmap-container">
+                    <div class="cohort-table-wrapper">
+                        <table class="cohort-table" id="cohort-heatmap-table">
+                            <thead>
+                                <tr>
+                                    <th>Cohort Month</th>
+                                    <th>Cohort Size</th>
+                                    <th>M0</th>
+                                    <th>M1</th>
+                                    <th>M2</th>
+                                    <th>M3</th>
+                                    <th>M4</th>
+                                    <th>M5</th>
+                                    <th>M6</th>
+                                    <th>M7</th>
+                                    <th>M8</th>
+                                    <th>M9</th>
+                                    <th>M10</th>
+                                    <th>M11</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Heatmap cell rows generated in app.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="chart-grid-two margin-top-lg">
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>Customer Ratings Distribution</h3>
+                            <span class="chart-desc">Correlation between order rating frequencies</span>
+                        </div>
+                        <div class="canvas-wrapper">
+                            <canvas id="ratings-distribution-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="cohort-stats-card">
+                        <h3>Customer Health Metrics</h3>
+                        <div class="health-indicators">
+                            <div class="health-item">
+                                <span class="label">Overall Customer Lifetime Value (Est.)</span>
+                                <span class="val" id="health-clv">₹3,450</span>
+                            </div>
+                            <div class="health-item">
+                                <span class="label">Repeat Customer Rate</span>
+                                <span class="val" id="health-repeat-rate">0%</span>
+                                <span class="desc">Placed &ge; 2 orders in 12 months</span>
+                            </div>
+                            <div class="health-item">
+                                <span class="label">Power User Share</span>
+                                <span class="val" id="health-power-share">0%</span>
+                                <span class="desc">Placed &ge; 10 orders in 12 months</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 4: PREDICTIVE SANDBOX -->
+            <section id="predictive-tab" class="tab-content">
+                <div class="chart-grid-two">
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>Monthly Revenue Trend & Forecast</h3>
+                            <span class="chart-desc">Applying Linear Regression to predict June 2026 sales</span>
+                        </div>
+                        <div class="canvas-wrapper">
+                            <canvas id="revenue-forecast-chart"></canvas>
+                        </div>
+                        <div class="forecast-overlay-box" id="forecast-values-box">
+                            <div>Slope: <strong id="val-slope">₹0</strong> / Mo</div>
+                            <div>June 2026 Forecast: <strong id="val-forecast">₹0</strong></div>
+                        </div>
+                    </div>
+                    
+                    <div class="simulator-card">
+                        <h3><i class="fa-solid fa-gamepad"></i> Before/After Business Simulator</h3>
+                        <p class="simulator-desc">Adjust operational sliders to simulate the annual revenue impact of key recommendations.</p>
+                        
+                        <div class="slider-group">
+                            <div class="slider-label">
+                                <span>Average Order Value (AOV)</span>
+                                <span class="slider-val-display" id="sim-aov-display">₹350</span>
+                            </div>
+                            <input type="range" id="sim-aov" min="250" max="500" step="5" class="custom-slider">
+                            <div class="slider-bounds"><span>₹250</span><span>Base</span><span>₹500</span></div>
+                        </div>
+
+                        <div class="slider-group">
+                            <div class="slider-label">
+                                <span>Reduce Cancellation Rate</span>
+                                <span class="slider-val-display" id="sim-cancel-display">6.0%</span>
+                            </div>
+                            <input type="range" id="sim-cancel" min="1.0" max="10.0" step="0.1" class="custom-slider">
+                            <div class="slider-bounds"><span>1.0%</span><span>Base</span><span>10.0%</span></div>
+                        </div>
+
+                        <div class="slider-group">
+                            <div class="slider-label">
+                                <span>Improve On-Time Rate (Impacts Retention)</span>
+                                <span class="slider-val-display" id="sim-ontime-display">75%</span>
+                            </div>
+                            <input type="range" id="sim-ontime" min="50" max="98" step="1" class="custom-slider">
+                            <div class="slider-bounds"><span>50%</span><span>Base</span><span>98%</span></div>
+                        </div>
+
+                        <div class="simulator-results">
+                            <div class="sim-metric-block">
+                                <span class="sim-lbl">Projected Annual Revenue</span>
+                                <span class="sim-val" id="sim-projected-rev">₹0</span>
+                            </div>
+                            <div class="sim-metric-block highlight">
+                                <span class="sim-lbl">Net Revenue Lift</span>
+                                <span class="sim-val" id="sim-revenue-lift">+₹0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 5: STRATEGIC INSIGHTS -->
+            <section id="insights-tab" class="tab-content">
+                <div class="insights-container">
+                    <h2 class="section-title"><i class="fa-solid fa-lightbulb"></i> Strategic KPI Insights & Recommendations</h2>
+                    
+                    <div class="insight-cards-list">
+                        <div class="insight-item">
+                            <div class="insight-num">1</div>
+                            <div class="insight-details">
+                                <h4>Total Revenue & Order Volume Trend</h4>
+                                <p id="ins-revenue">Loading...</p>
+                            </div>
+                        </div>
+
+                        <div class="insight-item">
+                            <div class="insight-num">2</div>
+                            <div class="insight-details">
+                                <h4>Average Order Value (AOV)</h4>
+                                <p id="ins-aov">Loading...</p>
+                            </div>
+                        </div>
+
+                        <div class="insight-item">
+                            <div class="insight-num">3</div>
+                            <div class="insight-details">
+                                <h4>On-Time Delivery Rate</h4>
+                                <p id="ins-ontime">Loading...</p>
+                            </div>
+                        </div>
+
+                        <div class="insight-item">
+                            <div class="insight-num">4</div>
+                            <div class="insight-details">
+                                <h4>Customer Retention Rate</h4>
+                                <p id="ins-retention">Loading...</p>
+                            </div>
+                        </div>
+
+                        <div class="insight-item">
+                            <div class="insight-num">5</div>
+                            <div class="insight-details">
+                                <h4>Cancellation Rate & Reasons</h4>
+                                <p id="ins-cancellation">Loading...</p>
+                            </div>
+                        </div>
+
+                        <div class="insight-item">
+                            <div class="insight-num">6</div>
+                            <div class="insight-details">
+                                <h4>Revenue by City & Category</h4>
+                                <p id="ins-citycategory">Loading...</p>
+                            </div>
+                        </div>
+
+                        <div class="insight-item">
+                            <div class="insight-num">7</div>
+                            <div class="insight-details">
+                                <h4>Delivery Partner Efficiency</h4>
+                                <p id="ins-delivery-efficiency">Loading...</p>
+                            </div>
+                        </div>
+
+                        <div class="insight-item">
+                            <div class="insight-num">8</div>
+                            <div class="insight-details">
+                                <h4>Customer Rating Distribution</h4>
+                                <p id="ins-rating">Loading...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="strategic-actions-box">
+                        <h3><i class="fa-solid fa-circle-check"></i> Actionable Business Recommendations</h3>
+                        <div class="action-items-list">
+                            <div class="action-card">
+                                <span class="action-icon"><i class="fa-solid fa-tags"></i></span>
+                                <span class="action-impact-badge"><i class="fa-solid fa-indian-rupee-sign"></i> +₹3.7 Lakhs/yr Lift</span>
+                                <h5>Weekend Combo Bundles</h5>
+                                <p>Weekend order volume is high, but AOV drops significantly to ₹280. To counteract this, introduce "Weekend Family Packs" or "Cuisine Combos" targeting larger groups. Bundle a main dish, side, and dessert for ₹450 to pull the AOV up on Saturdays and Sundays.</p>
+                            </div>
+                            <div class="action-card">
+                                <span class="action-icon"><i class="fa-solid fa-map-location-dot"></i></span>
+                                <span class="action-impact-badge"><i class="fa-solid fa-indian-rupee-sign"></i> +₹5.5 Lakhs/yr Lift</span>
+                                <h5>Bangalore Logistics Redeployment</h5>
+                                <p>Bangalore lags in On-Time Delivery (~62% vs Mumbai's ~84%) due to heavy traffic. Redeploy delivery hubs closer to high-density clusters and establish a dynamic routing SLA algorithm that assigns shorter-range deliveries to bicycles or local riders during dinner peak hours.</p>
+                            </div>
+                            <div class="action-card">
+                                <span class="action-icon"><i class="fa-solid fa-clock-rotate-left"></i></span>
+                                <span class="action-impact-badge"><i class="fa-solid fa-indian-rupee-sign"></i> +₹4.0 Lakhs/yr Recovery</span>
+                                <h5>"Active Rider" Retention Incentives</h5>
+                                <p>35% of cancellations occur due to delivery partners being "unavailable" during lunch and dinner peaks. Establish a peak-hour multiplier incentive structure: riders completing 5+ orders during peak hours get a 1.5x payout boost, increasing active delivery supply when customer demand surges.</p>
+                            </div>
+                            <div class="action-card">
+                                <span class="action-icon"><i class="fa-solid fa-envelope-open-text"></i></span>
+                                <span class="action-impact-badge"><i class="fa-solid fa-indian-rupee-sign"></i> +₹2.8 Lakhs/yr Lift</span>
+                                <h5>Cohort-Targeted Winback Campaigns</h5>
+                                <p>Cohort retention drops from ~38% in Month 1 to under 15% in Month 3. Deploy automatic push notifications and coupon codes ("We Miss You - ₹100 Off") to customers entering their Month 3 post-registration window to combat the steep operational churn curve.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 6: METHODOLOGY & SETUP -->
+            <section id="about-tab" class="tab-content">
+                <div class="about-container">
+                    <h2 class="section-title">Case Study Methodology & Setup</h2>
+                    
+                    <div class="about-section">
+                        <h3><i class="fa-solid fa-clipboard-question"></i> Problem Statement</h3>
+                        <p>
+                            Food delivery startups operate on razor-thin margins and are highly dependent on operational efficiency, customer repeat rates, and regional demand dynamics. 
+                            This project is a complete analytical deep-dive into the performance of <strong>ZippyBites</strong>, a synthetic food delivery platform operating in 6 Indian metro cities. 
+                            The objective is to identify operational bottlenecks (such as logistics delays, cancellation factors, and driver shortages), study customer ordering patterns (retention drop-offs, pricing dynamics), and build a predictive forecasting model to support senior executive decision-making.
+                        </p>
+                    </div>
+
+                    <div class="about-section">
+                        <h3><i class="fa-solid fa-database"></i> Synthetic Data Generation Details</h3>
+                        <p>
+                            A robust synthetic dataset was programmatically generated using Python. The dataset comprises <strong>25,000+ orders</strong> over a 12-month period (June 2025 – May 2026). It simulates realistic relationships:
+                        </p>
+                        <ul>
+                            <li><strong>Weekend Pricing Patterns</strong>: Programmed AOV drops on weekends (₹280) compared to weekdays (₹380) representing price-sensitive discount shoppers.</li>
+                            <li><strong>Logistics Bottlenecks</strong>: City-specific traffic variables (e.g., Bangalore has a 1.6x traffic multiplier leading to longer delivery times and lower ratings).</li>
+                            <li><strong>Customer Cohorts</strong>: Assigned unique customer IDs with random power-law order distributions to calculate accurate monthly customer retention cohorts.</li>
+                            <li><strong>Cancellation Vectors</strong>: Modeled dinner-rush cancellations caused by rider unavailability and restaurant rejections.</li>
+                        </ul>
+                    </div>
+
+                    <div class="about-section">
+                        <h3><i class="fa-solid fa-triangle-exclamation"></i> Data Limitations & Transparency Disclosure</h3>
+                        <p>
+                            <strong>Synthetic Dataset Profile:</strong> This case study utilizes programmatically generated synthetic data. In the commercial food delivery space, transactional and logistics logs are highly proprietary corporate assets and not publicly available. Designing synthetic data with realistic constraints (such as weekend discount shocks and geographical traffic congestion multipliers) enables testing of structural analytics pipelines without compromising IP boundaries, reflecting professional field judgment.
+                        </p>
+                    </div>
+
+                    <div class="about-section">
+                        <h3><i class="fa-solid fa-gears"></i> Data Pipeline & Architecture</h3>
+                        <div class="pipeline-flow">
+                            <div class="flow-step">
+                                <div class="step-num">1</div>
+                                <h5>Data Generation</h5>
+                                <p><code>generate_data.py</code> creates 25K raw rows with random distributions and physical correlations, outputting <code>orders_raw.csv</code>.</p>
+                            </div>
+                            <div class="flow-step">
+                                <div class="step-num">2</div>
+                                <h5>Data Processing</h5>
+                                <p><code>process_data.py</code> cleans dates, filters duplicates, aggregates KPIs, builds cohorts, fits regression lines, and outputs <code>dashboard_data.json</code>.</p>
+                            </div>
+                            <div class="flow-step">
+                                <div class="step-num">3</div>
+                                <h5>Interactive UI</h5>
+                                <p><code>index.html</code>, <code>styles.css</code>, and <code>app.js</code> load the clean data, render charts, and recalculate metrics dynamically upon filter adjustments.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-section">
+                        <h3><i class="fa-solid fa-chart-line"></i> Predictive Forecasting Model</h3>
+                        <p>
+                            Using the monthly aggregated revenue, we implemented a <strong>simple linear regression model</strong> in Python to project future revenues:
+                        </p>
+                        <div class="equation-box">
+                            <code>y = mx + c</code>
+                            <p>Where <strong>y</strong> is projected monthly revenue, <strong>x</strong> is the month index (0-12), <strong>m</strong> represents the growth rate (slope), and <strong>c</strong> represents the baseline intercept.</p>
+                        </div>
+                        <p>
+                            The calculated values (slope, intercept, and a 1-month forecast for June 2026) are displayed on the <strong>Predictive Sandbox</strong> tab, coupled with an interactive business simulator that displays revenue projections in real-time.
+                        </p>
+                        <p class="limitation-callout" style="border-left: 3px solid var(--accent-yellow); background: var(--bg-tertiary); padding: 12px; border-radius: 6px; font-size: 0.85rem; color: var(--text-muted); line-height: 1.45; margin-top: 14px;">
+                            <strong>Model Limitations & Trade-offs:</strong> This single-variable linear model acts as a baseline trend line. It does not account for holiday seasonality (e.g., Diwali or Christmas spikes) or promotional marketing campaign spend edits. In a production scenario, a time-series framework like **SARIMA** or **Prophet** would be deployed to overlay periodic seasonality indices.
+                        </p>
+                    </div>
+
+                    <div class="about-section">
+                        <h3><i class="fa-solid fa-map-signs"></i> Future Technical Roadmap</h3>
+                        <p>
+                            To evolve this case study from a static single-page portfolio dashboard to a production-ready analytics system, the following engineering upgrades are planned:
+                        </p>
+                        <ul>
+                            <li><strong>Database Migration</strong>: Transition data storage from static CSV/JSON files to an index-optimized relational database (PostgreSQL) or document store (MongoDB). Create a backend API (FastAPI or Express.js) to query, paginate, and filter large datasets dynamically, reducing initial browser load memory footprint.</li>
+                            <li><strong>Seasonal Forecasting Models</strong>: Implement a secondary forecasting worker using <strong>SARIMA</strong> or <strong>Facebook Prophet</strong> via Python to capture complex Indian seasonal factors (monsoons, Diwali shopping peaks, weekend shifts) rather than baseline linear regression.</li>
+                            <li><strong>Rider Availability ML Model</strong>: Incorporate a predictive logistics module using XGBoost or Reinforcement Learning to suggest real-time pricing and optimal rider payout multipliers for the 8 PM to 10 PM peak hours, minimizing order cancellations.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
